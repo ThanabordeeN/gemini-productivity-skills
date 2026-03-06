@@ -1,0 +1,48 @@
+{
+  "title": "Automated IEEE Paper Generation Using docx-js and Node.js",
+  "authors": "John Doe, Jane Smith, and Robert Brown",
+  "affiliation": "Department of Computer Science, Innovative University, Thailand",
+  "abstract": "This research explores the automation of academic paper formatting using the docx-js library. By mapping IEEE editorial standards to programmatic rules, we reduce formatting errors and save time for researchers.",
+  "keywords": "IEEE Standards, Automation, docx-js, Academic Writing, Node.js",
+  "sections": [
+    {
+      "id": "I",
+      "title": "Introduction",
+      "content": "The introduction provides background on the importance of standardized formatting in academic publishing. IEEE style is widely recognized but can be challenging to implement manually."
+    },
+    {
+      "id": "II",
+      "title": "Related Work",
+      "content": "Previous tools like LaTeX provide high-quality output but have a steep learning curve. Our approach uses JavaScript to provide a familiar environment for web developers."
+    },
+    {
+      "id": "III",
+      "title": "Proposed Methodology",
+      "subsections": [
+        {
+          "title": "Layout Engine Design",
+          "content": "The engine uses a section-based approach to handle the transition from single-column titles to double-column body text."
+        },
+        {
+          "title": "Font and Style Mapping",
+          "content": "Every font size is converted to docx-compatible half-points (e.g., 10pt = 20 units)."
+        }
+      ]
+    },
+    {
+      "id": "IV",
+      "title": "Results and Discussion",
+      "content": "Our tests show that the generated documents align perfectly with the IEEE Word template used in major conferences."
+    },
+    {
+      "id": "V",
+      "title": "Conclusion",
+      "content": "Automation in academic writing is feasible and highly effective. Future versions will support automatic BibTeX integration."
+    }
+  ],
+  "acknowledgment": "This work was supported by the Open Source Development Grant #2026.",
+  "references": [
+    "[1] G. O. Young, “Synthetic structure of industrial plastics,” in Plastics, 2nd ed., vol. 3, J. Peters, Ed. New York: McGraw-Hill, 1964, pp. 15–64.",
+    "[2] W.-K. Chen, Linear Networks and Systems. Belmont, CA: Wadsworth, 1993, pp. 123–135."
+  ]
+}
