@@ -22,7 +22,7 @@ DECK CREATION PROCESS
 3. Pacing and Rhythm: Treat the sequence of slides like movements in a symphony. Allow concepts to breathe across multiple slides. Build meaning through patient repetition.
 4. Information Architecture: Borrow the visual language of systematic observation where appropriate—strict grids, clinical alignments, layered structural hierarchies.
 5. Expert Craftsmanship: To achieve human-crafted quality (not AI-generated), create slides that look like they took countless hours. Make it appear as though someone at the absolute top of their presentation design field labored over every single alignment, negative space, and font choice. Double check that nothing overlaps and formatting is flawless.
-6. Execution via Code: Write scripts to generate the presentation. Ensure your code perfectly reflects the aesthetic requirements—exact font sizes, strict positional coordinates, and cohesive color hex codes. Let context guide whether that means whisper-quiet labels or bold typographic gestures.
+6. Execution via Code: You MUST use the `npm-file-creator` skill (`../npm-file-creator/SKILL.md`) as your standard for generating the `.pptx` files. Follow its instructions for utilizing Node.js and packages like `pptxgenjs` to write the creation scripts. Ensure your generation code perfectly reflects the aesthetic requirements—exact font sizes, strict positional coordinates, and cohesive color hex codes. Let context guide whether that means whisper-quiet labels or bold typographic gestures.
 
 REFINEMENT - FINAL STEP
 
