@@ -1,215 +1,214 @@
 ---
 name: npm-file-creator
-description: Use this skill whenever the user wants to create or generate Office files (PowerPoint, Word, Excel) or PDFs using Node.js/npm libraries. Trigger when the user says things like "สร้างไฟล์ PowerPoint", "สร้าง Word doc", "สร้าง Excel", "generate a .pptx", "create a .docx", "make a spreadsheet", "export to PDF", or any request to produce a file using code. This skill covers pptxgenjs (PowerPoint), docx (Word), exceljs (Excel), and pdf-lib (PDF). Always use this skill when the deliverable is an Office or PDF file created programmatically via npm packages.
+description: "Comprehensive Node.js/npm toolkit for creating, editing, and updating Microsoft Office files (PowerPoint, Word, Excel) and PDFs programmatically. When Claude needs to generate new reports from scratch, edit existing document scripts, assemble slides, or build spreadsheets using JS packages like pptxgenjs, docx, exceljs, or pdf-lib. Use for automated document workflows and precise formatting tasks. Not for reading or parsing complex existing PDF/Word content."
 ---
 
-# npm File Creator Skill
+# npm File Creator
 
-Create Office & PDF files programmatically using Node.js npm packages.
+## Overview
 
-## Package Selection
+This skill provides instructions for creating, editing, and updating Office files (.pptx, .docx, .xlsx) and PDFs programmatically using Node.js.
 
-| File Type | npm Package |
-|-----------|-------------|
-| PowerPoint (.pptx) | `pptxgenjs` |
-| Word (.docx) | `docx` |
-| Excel (.xlsx) | `exceljs` |
-| PDF | `pdf-lib` |
+**CRITICAL DIFFERENTIATION:**
 
----
+- **Create New (สร้าง/ทำใหม่):** Generate a new script and output file.
+- **Edit/Update (แก้/ปรับปรุง):** Modify the _existing_ script instead of creating new versioned files (e.g., `create2.js`).
 
-## Setup
+## Prerequisites
 
-All packages are **pre-installed globally**. Use this path prefix in `require()` for the current Windows environment:
+All required packages are pre-installed globally. Use this snippet to dynamically resolve the global `node_modules` path in your scripts:
 
-```js
-const G = "C:\\Users\\origi\\AppData\\Roaming\\npm\\node_modules\\";
+```javascript
+const { execSync } = require("child_process");
+const G = execSync("npm root -g").toString().trim() + "/";
 
+// Import required packages dynamically:
 const PptxGenJS = require(G + "pptxgenjs");
-const { Document, Packer, Paragraph, TextRun, HeadingLevel } = require(G + "docx");
+const {
+  Document,
+  Packer,
+  Paragraph,
+  TextRun,
+  HeadingLevel,
+  Table,
+  TableRow,
+  TableCell,
+  WidthType,
+} = require(G + "docx");
 const ExcelJS = require(G + "exceljs");
 const { PDFDocument, rgb, StandardFonts } = require(G + "pdf-lib");
 ```
 
-### General Workflow
+## Execution Steps
 
-1. Create a script at `C:\Users\origi\.gemini\tmp\origi\create.js`
-2. Run: `node C:\Users\origi\.gemini\tmp\origi\create.js`
-3. Copy output as needed.
+**1. Research Phase**
 
----
+- List the directory (`list_directory`) to check for existing Node.js scripts (e.g., `create.js`).
+- If a script exists, read it (`read_file`) to understand the current logic and structure.
 
-## PowerPoint — pptxgenjs
+**2. Decision Logic**
+Determine the user's intent based on their prompt:
 
-```js
-const G = "C:\\Users\\origi\\AppData\\Roaming\\npm\\node_modules\\";
+- **Edit/Update:** Look for keywords like "แก้", "เปลี่ยน", "เพิ่มสไลด์", "ปรับสี", "update".
+  - _Action:_ Modify the existing `.js` script using replace/write tools. Do NOT create new files.
+- **Create New:** Look for keywords like "สร้าง", "ทำไฟล์ใหม่", "generate".
+  - _Action:_ Create a new `.js` script with a descriptive name.
+- _Unsure:_ If the request is ambiguous, use the `ask_user` tool to confirm the intent before writing code.
+
+**3. Execution & Verification**
+
+- Write or modify the Node.js script.
+- Execute the script using `node <filename>.js`.
+- Verify the output file (e.g., `.pptx`, `.pdf`) was generated successfully in the directory.
+
+## Examples
+
+### PowerPoint (pptxgenjs)
+
+```javascript
+const { execSync } = require("child_process");
+const G = execSync("npm root -g").toString().trim() + "/";
 const PptxGenJS = require(G + "pptxgenjs");
 
 (async () => {
   const pptx = new PptxGenJS();
-  pptx.layout = "LAYOUT_WIDE"; // 13.33" x 7.5"
+  pptx.layout = "LAYOUT_WIDE";
 
   const slide = pptx.addSlide();
   slide.background = { color: "1E2761" };
 
-  // Add text
-  slide.addText("ชื่อเรื่อง", {
-    x: 1, y: 1.5, w: 11, h: 1.5,
-    fontSize: 44, bold: true, color: "FFFFFF", align: "center"
+  slide.addText("Title", {
+    x: 1,
+    y: 1.5,
+    w: 11,
+    h: 1.5,
+    fontSize: 44,
+    bold: true,
+    color: "FFFFFF",
+    align: "center",
   });
 
-  // Add shape (use string name, NOT pptx.ShapeType)
+  // IMPORTANT: Always use string shape names ("rect", "roundRect", "ellipse")
   slide.addShape("rect", {
-    x: 0.5, y: 0.5, w: 3, h: 1,
-    fill: { color: "FF0000" }
+    x: 0.5,
+    y: 0.5,
+    w: 3,
+    h: 1,
+    fill: { color: "FF0000" },
   });
 
-  // Add image
-  // slide.addImage({ path: "C:\\path\\to\\image.png", x: 1, y: 1, w: 4, h: 3 });
-
-  await pptx.writeFile({ fileName: "C:\\Users\\origi\\.gemini\\tmp\\origi\\output.pptx" });
-  console.log("Done!");
+  await pptx.writeFile({ fileName: "output.pptx" });
+  console.log("Generated: output.pptx");
 })();
 ```
 
-**⚠️ Important:** Always use shape names as strings (`"rect"`, `"roundRect"`, `"ellipse"`) — NOT `pptx.ShapeType.XXX`.
+### Word Document (docx)
 
-**Common shape names:** `"rect"`, `"roundRect"`, `"ellipse"`, `"triangle"`, `"line"`
-
----
-
-## Word — docx
-
-```js
-const G = "C:\\Users\\origi\\AppData\\Roaming\\npm\\node_modules\\";
-const { Document, Packer, Paragraph, TextRun, HeadingLevel, Table, TableRow, TableCell, WidthType } = require(G + "docx");
+```javascript
+const { execSync } = require("child_process");
+const G = execSync("npm root -g").toString().trim() + "/";
+const { Document, Packer, Paragraph, TextRun, HeadingLevel } = require(
+  G + "docx",
+);
 const fs = require("fs");
 
 (async () => {
   const doc = new Document({
-    sections: [{
-      children: [
-        new Paragraph({
-          text: "หัวข้อเอกสาร",
-          heading: HeadingLevel.HEADING_1,
-        }),
-        new Paragraph({
-          children: [
-            new TextRun("ข้อความปกติ "),
-            new TextRun({ text: "ตัวหนา", bold: true }),
-            new TextRun({ text: " ตัวเอียง", italics: true }),
-          ],
-        }),
-        // Table
-        new Table({
-          rows: [
-            new TableRow({
-              children: [
-                new TableCell({ children: [new Paragraph("คอลัมน์ 1")] }),
-                new TableCell({ children: [new Paragraph("คอลัมน์ 2")] }),
-              ],
-            }),
-          ],
-          width: { size: 100, type: WidthType.PERCENTAGE },
-        }),
-      ],
-    }],
+    sections: [
+      {
+        children: [
+          new Paragraph({
+            text: "Document Title",
+            heading: HeadingLevel.HEADING_1,
+          }),
+          new Paragraph({
+            children: [
+              new TextRun("Normal text "),
+              new TextRun({ text: "Bold", bold: true }),
+            ],
+          }),
+        ],
+      },
+    ],
   });
 
   const buffer = await Packer.toBuffer(doc);
-  fs.writeFileSync("C:\\Users\\origi\\.gemini\\tmp\\origi\\output.docx", buffer);
-  console.log("Done!");
+  fs.writeFileSync("output.docx", buffer);
+  console.log("Generated: output.docx");
 })();
 ```
 
----
+### Excel Spreadsheet (exceljs)
 
-## Excel — exceljs
-
-```js
-const G = "C:\\Users\\origi\\AppData\\Roaming\\npm\\node_modules\\";
+```javascript
+const { execSync } = require("child_process");
+const G = execSync("npm root -g").toString().trim() + "/";
 const ExcelJS = require(G + "exceljs");
 
 (async () => {
   const workbook = new ExcelJS.Workbook();
-  const sheet = workbook.addWorksheet("Sheet1");
+  const sheet = workbook.addWorksheet("Data");
 
-  // Define columns
   sheet.columns = [
-    { header: "ชื่อ", key: "name", width: 20 },
-    { header: "ยอดขาย", key: "sales", width: 15 },
-    { header: "วันที่", key: "date", width: 15 },
+    { header: "Name", key: "name", width: 20 },
+    { header: "Sales", key: "sales", width: 15 },
   ];
 
-  // Add data
-  sheet.addRow({ name: "สินค้า A", sales: 50000, date: new Date() });
-  sheet.addRow({ name: "สินค้า B", sales: 75000, date: new Date() });
+  sheet.addRow({ name: "Product A", sales: 50000 });
 
-  // Style header row
   const headerRow = sheet.getRow(1);
   headerRow.font = { bold: true, color: { argb: "FFFFFFFF" } };
   headerRow.fill = {
-    type: "pattern", pattern: "solid",
-    fgColor: { argb: "FF1E2761" }
+    type: "pattern",
+    pattern: "solid",
+    fgColor: { argb: "FF1E2761" },
   };
 
-  await workbook.xlsx.writeFile("C:\\Users\\origi\\.gemini\\tmp\\origi\\output.xlsx");
-  console.log("Done!");
+  await workbook.xlsx.writeFile("output.xlsx");
+  console.log("Generated: output.xlsx");
 })();
 ```
 
----
+### PDF Generation (pdf-lib)
 
-## PDF — pdf-lib
-
-```js
-const G = "C:\\Users\\origi\\AppData\\Roaming\\npm\\node_modules\\";
+```javascript
+const { execSync } = require("child_process");
+const G = execSync("npm root -g").toString().trim() + "/";
 const { PDFDocument, rgb, StandardFonts } = require(G + "pdf-lib");
 const fs = require("fs");
 
 (async () => {
   const pdfDoc = await PDFDocument.create();
-  const page = pdfDoc.addPage([595, 842]); // A4
-
+  const page = pdfDoc.addPage([595, 842]); // A4 Size
   const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
-  
-  page.drawText("Hello PDF", {
-    x: 50, y: 750, size: 30,
-    font, color: rgb(0, 0.2, 0.6),
-  });
 
-  page.drawRectangle({
-    x: 50, y: 600, width: 200, height: 50,
-    color: rgb(0.9, 0.9, 1),
-    borderColor: rgb(0, 0.2, 0.6), borderWidth: 2,
+  page.drawText("Hello PDF", {
+    x: 50,
+    y: 750,
+    size: 30,
+    font,
+    color: rgb(0, 0.2, 0.6),
   });
 
   const pdfBytes = await pdfDoc.save();
-  fs.writeFileSync("C:\\Users\\origi\\.gemini\\tmp\\origi\\output.pdf", pdfBytes);
-  console.log("Done!");
+  fs.writeFileSync("output.pdf", pdfBytes);
+  console.log("Generated: output.pdf");
 })();
 ```
 
-**Note:** StandardFonts (Helvetica, Times, Courier) do NOT support Thai. For Thai text, embed a .ttf font file.
+## Error Handling
 
----
+If a script fails during execution:
 
-## Debugging
+- Run the script with explicit error output: `node <filename>.js 2>&1`
+- Verify the global package is available dynamically:
+  ```bash
+  node -e "const G = require('child_process').execSync('npm root -g').toString().trim() + '/'; require(G + 'pptxgenjs'); console.log('OK')"
+  ```
+- Check for Node.js syntax errors or incorrect dynamically resolved imports.
 
-```bash
-# Run with error output
-node create.js 2>&1
+## Limitations
 
-# Check Node.js version
-node --version
-
-# Verify a package is available
-node -e "require('C:\\Users\\origi\\AppData\\Roaming\\npm\\node_modules\\pptxgenjs'); console.log('OK')"
-```
-
----
-
-## Available Packages (Pre-installed)
-
-Global modules path: `C:\Users\origi\AppData\Roaming\npm\node_modules\`
-Confirmed available: `pptxgenjs`, `docx`, `pdf-lib`, `exceljs`, `sharp`, `react`, `typescript`
+- **PDF Thai Fonts Support:** StandardFonts (Helvetica, Times, Courier) in `pdf-lib` do NOT support Thai text. To use Thai text, you must embed a `.ttf` font file explicitly.
+- **pptxgenjs Shapes:** Do NOT use `pptx.ShapeType.XXX`. Always use explicit string names like `"rect"`, `"roundRect"`, `"ellipse"`, `"triangle"`, `"line"`.
+- **Parsing Restrictions:** This skill is strictly for _generating_ and _programmatically updating_ files. It should not be used for natively parsing complex PDF or Office documents.

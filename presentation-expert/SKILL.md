@@ -1,42 +1,52 @@
 ---
 name: presentation-expert
-description: A specialized skill for designing modern, professional corporate presentation slides and pitch decks. Use when the user needs to create a company profile, investment deck, or business presentation following 2026 design trends and storytelling best practices.
+description: A premier skill for designing 2026-standard immersive presentations, pitch decks, and spatial experiences. It integrates AI co-creation, spatial computing aesthetics, and human-centric storytelling to deliver high-impact, professional results.
 ---
 
-# Presentation Expert
+# Presentation Expert (2026 Edition)
 
 ## Overview
-This skill enables the creation of high-impact, professional-grade corporate presentations. It integrates 2026 design trends (Bento Grids, Dark Mode, Massive Typography) with strategic storytelling frameworks to ensure clarity, engagement, and persuasion.
+This skill is engineered for the "Post-Slide" era. It moves beyond static 2D documents to create **Immersive Narratives** that leverage spatial depth, AI-driven personalization, and cinematic motion design. It is designed to make presentations feel alive, interactive, and authentically human.
 
-## Capabilities
+## Core Pillars (2026 Standards)
 
-### 1. Modern Design Strategy
-Utilize cutting-edge 2026 design principles to create visually stunning decks:
-- **Bento Grid Layouts**: Modular organization for disparate data.
-- **Dark Mode by Default**: High-contrast, neon accents on charcoal/black backgrounds.
-- **Massive Typography**: Headlines as the main visual element (80pt+).
-- **Glassmorphism**: Using semi-transparent layers for depth.
-- **Mobile-First Design**: Optimized 9:16 aspect ratios for "leave-behind" documents.
+### 1. Spatial & Immersive Design (The Z-Axis)
+Design for depth, not just flat surfaces. This is essential for modern AR/VR/Spatial displays (e.g., Vision Pro, Meta Quest).
+- **Z-Axis Hierarchy**: Layering information so critical insights "float" in the foreground.
+- **Volumetric Data**: Transforming 2D charts into 3D models that the audience can explore.
+- **Environmental Context**: Designing the "stage" or background to match the narrative mood.
 
-### 2. Strategic Storytelling
-Apply narrative frameworks to move beyond "information delivery":
-- **Narrative Headlines**: Every slide header should tell a story (e.g., "Revenue Up 15%" instead of "Q4 Sales").
-- **5-Second Clarity Test**: Ensure any slide is understandable within 5 seconds.
+### 2. AI Co-creation & Hyper-Personalization
+Utilize AI as a strategic partner to tailor content in real-time.
+- **Dynamic Content Adaptation**: Content that updates based on live data or audience sentiment.
+- **Hyper-Personalization**: Generating tailored versions of a deck for different stakeholder personas (e.g., CFO vs. CTO).
+- **AI-Driven Motion & Physics**: Using natural-feeling transitions (physics-based) to guide the eye seamlessly.
+
+### 3. Authentic & Non-Linear Storytelling
+Moving away from "The Monologue" towards "The Dialogue."
+- **Non-Linear Navigation (Interactive Maps)**: Allowing the audience to choose the path of the presentation.
+- **Human-Centric Data (Micro-stories)**: Anchoring complex data in real-human impact stories to build emotional resonance.
+- **Co-authored Experiences**: Inviting real-time input from the audience that shapes the final outcome.
+
+## Strategic Capabilities
+
+### Design Strategy
+- **Bento & Glass Evolution**: Refined modular layouts with sophisticated glassmorphism and neomorphism.
+- **Massive Typography**: Headlines as the primary visual anchor (80pt+).
+- **Physics-Based Animation**: Using Morph and Magic Move with natural easing for cinematic flow.
+
+### Narrative Strategy
+- **Narrative Headlines**: Every slide header must convey a specific insight (Action-Oriented).
+- **The 5-Second Clarity Test**: Instant comprehension of the core message.
 - **Three-Act Narrative Arc**: Setup (Context) → Conflict (The Gap) → Resolution (The Vision).
-- **One Insight Rule**: Every chart must answer exactly one key question.
 
-### 3. Professional Standards
-Follow industry-standard accessibility and technical requirements:
-- **WCAG 2.1 Compliance**: 4.5:1 contrast ratio and color-blind friendly palettes.
-- **Presenter-Optional Decks**: Designed for both live talks and standalone reading.
-- **Kinetic Motion**: Subtle animations (Morph/Magic Move) to guide the audience's eye.
-
-## Recommended Tools
-- **Design**: Figma, Canva.
-- **Interactivity**: Mentimeter, AhaSlides.
-- **Delivery**: Gamma, Pitch.
+## Workflow Integration
+- **Discovery**: Understand the audience, the "One Big Idea," and the delivery environment (Spatial vs. 2D).
+- **Structure**: Map the narrative arc and identify "leverage points" for data storytelling.
+- **Visualization**: Apply 2026 design principles (Spatial, Dark Mode, Massive Type).
+- **Refinement**: Pass the WCAG 2.1 accessibility test and the 5-Second Clarity Test.
 
 ## References
-- **[design_trends_2026.md](references/design_trends_2026.md)**: Detailed 2026 design specifications.
-- **[storytelling_frameworks.md](references/storytelling_frameworks.md)**: Narrative structures and headline tips.
-- **[professional_roles.md](references/professional_roles.md)**: Roles involved in professional presentation design.
+- **[design_trends_2026.md](references/design_trends_2026.md)**: Spatial, AI, and Advanced Visuals.
+- **[storytelling_frameworks.md](references/storytelling_frameworks.md)**: Non-linear and Human-centric frameworks.
+- **[professional_roles.md](references/professional_roles.md)**: The 2026 Presentation Team.
