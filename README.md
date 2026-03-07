@@ -1,59 +1,52 @@
 # Gemini Productivity Skills
 
-A collection of custom skills for the Gemini CLI to enhance productivity with file generation, media processing, and professional design.
+A collection of specialized, AI-driven skills for the Gemini CLI to enhance productivity through professional file generation and document automation.
 
 ## Available Skills
 
-### 1. [npm-file-creator](./npm-file-creator)
-Generate Office documents (PowerPoint, Word, Excel) and PDFs programmatically using Node.js libraries.
-- **PowerPoint**: Uses `pptxgenjs`
-- **Word**: Uses `docx`
-- **Excel**: Uses `exceljs`
-- **PDF**: Uses `pdf-lib`
+### 1. [npm-docx-expert](./docx-expert)
+Expert skill for creating and editing Word (.docx) files programmatically using Node.js and the `docx` package.
+- **Dynamic Documents**: Generates reports, memos, letters, and proposals.
+- **Adaptive Design**: Interviews the user to adapt structure, typography, and tone.
 
-### 2. [presentation-expert](./presentation-expert)
-A specialized skill for designing modern, professional corporate presentation slides and pitch decks following 2026 design trends.
-- **Modern Design**: Bento Grids, Dark Mode, Massive Typography, Glassmorphism.
-- **Storytelling**: Narrative Headlines, 5-Second Clarity Test, Three-Act Arc.
-- **Data Visualization**: One Insight Rule, High-impact callouts.
+### 2. [ieee-paper](./ieee-paper)
+Advanced skill for generating and editing IEEE-compliant academic papers.
+- **Compliance**: Ensures all formatting follows IEEE academic standards.
+- **Iterative Drafting**: Manages JSON content files for continuous refinement.
 
-### 3. [monthly-report-expert](./monthly-report-expert)
-Craft high-impact monthly reports using McKinsey standards (Pyramid Principle, MECE) and automation-specific KPIs.
-- **Strategic Communication**: Pyramid Principle (Answer First), "So What?" Test.
-- **Structure**: MECE (Mutually Exclusive, Collectively Exhaustive) framework.
-- **Automation KPIs**: Efficiency gains, accuracy rates, and system reliability.
+### 3. [npm-pdf-expert](./pdf-expert)
+Expert skill for creating and editing PDF files programmatically using Node.js and `pdf-lib`.
+- **Visual Design**: Supports custom layouts, typography, and color palettes.
+- **Thai Language Support**: Built-in strategy for embedding .ttf fonts for Thai text.
 
-### 4. [professional-canvas-designer](./professional-canvas-designer)
-Programmatically generate professional visual assets (posters, banners, infographics) with Node.js `node-canvas`.
-- **Design Principles**: Visual Hierarchy, Grid Systems, and modern Typography.
-- **Thai Support**: Multi-line Thai text wrapping and font-specific adjustments.
-- **Advanced Layouts**: Split-screen, curved dividers, and gradient overlays.
+### 4. [npm-pptx-expert](./powerpoint-expert)
+Expert skill for creating and editing PowerPoint (.pptx) files programmatically using Node.js and `pptxgenjs`.
+- **Professional Slides**: Generates high-impact slide decks with custom layouts and shapes.
+- **Interviewer Mode**: Adapts design philosophy based on user role and context.
 
-### 5. [video-silence-cutter](./video-silence-cutter)
-Automatically detect and remove silent sections from video files using FFmpeg's `silencedetect` filter. Optimized for high-quality "jump-cut" style editing.
+### 5. [thai-gov-docs](./thai-gov-docs)
+Specialized skill for creating Thai Government Documents (บันทึกข้อความ) according to official standards.
+- **Standard Compliance**: Follows the Prime Minister's Office regulations for official correspondence.
+- **Automation**: Uses `docx` to generate perfectly formatted Thai official memos.
+
+### 6. [npm-xlsx-expert](./xlsx-expert)
+Expert skill for creating and editing Excel (.xlsx) spreadsheets programmatically using Node.js and `exceljs`.
+- **Data Visualization**: Generates dashboards, data tables, and structured reports.
+- **Structural Integrity**: Focuses on data design philosophy and consistent formatting.
 
 ---
 
-## Installation for Other Users
+## Installation
 
 Users can install these skills directly using the Gemini CLI:
 
 ### Install via URL
 ```bash
-# To install monthly-report-expert (Recommended)
-gemini skills install https://github.com/ThanabordeeN/gemini-productivity-skills.git --path monthly-report-expert
+# Example: To install npm-docx-expert
+gemini skills install https://github.com/ThanabordeeN/gemini-productivity-skills.git --path docx-expert
 
-# To install professional-canvas-designer
-gemini skills install https://github.com/ThanabordeeN/gemini-productivity-skills.git --path professional-canvas-designer
-
-# To install presentation-expert
-gemini skills install https://github.com/ThanabordeeN/gemini-productivity-skills.git --path presentation-expert
-
-# To install npm-file-creator
-gemini skills install https://github.com/ThanabordeeN/gemini-productivity-skills.git --path npm-file-creator
-
-# To install video-silence-cutter
-gemini skills install https://github.com/ThanabordeeN/gemini-productivity-skills.git --path video-silence-cutter
+# Example: To install thai-gov-docs
+gemini skills install https://github.com/ThanabordeeN/gemini-productivity-skills.git --path thai-gov-docs
 ```
 
 ### Manual Installation
@@ -65,16 +58,13 @@ gemini skills install https://github.com/ThanabordeeN/gemini-productivity-skills
    ```bash
    gemini skills link ./gemini-productivity-skills
    ```
-3. Or copy the skill folders to your local skills directory:
-   - **Windows**: `%USERPROFILE%\.gemini\skills\`
-   - **macOS/Linux**: `~/.gemini/skills/`
 
 ---
 
 ## Usage
-Once installed, you can trigger these skills by asking Gemini to perform the respective tasks:
-- "ช่วยเขียนสรุปรายงานประจำเดือน (Monthly Report) ตามมาตรฐาน McKinsey"
-- "ออกแบบ Poster งานสัมมนาโดยใช้ professional-canvas-designer"
-- "สร้างไฟล์ PowerPoint สรุปเนื้อหา..."
-- "ช่วยออกแบบ Company Profile โดยใช้ทักษะ presentation-expert"
-- "ตัดช่วงเงียบออกจากวิดีโอ input.mp4 ให้หน่อย"
+Once installed, you can trigger these skills by asking Gemini to perform specific tasks:
+- "Create a professional Word report about..."
+- "Generate an IEEE paper draft for my research on..."
+- "สร้างบันทึกข้อความราชการเรื่อง..."
+- "Design a PowerPoint presentation for my project..."
+- "Prepare an Excel dashboard for the quarterly data..."
