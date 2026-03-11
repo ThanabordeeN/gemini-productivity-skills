@@ -60,6 +60,14 @@ slide.addText("Title", {
 
 **Tip:** Text boxes have internal margin by default. Set `margin: 0` when you need text to align precisely with shapes, lines, or icons at the same x-position.
 
+### Key Layout Fixes & Best Practices
+
+To prevent text overlap and box mismatches when generating slides:
+- **Prevent Text Overlap**: Always use explicit `y` and `h` (height) parameters for all text elements to prevent collision.
+- **Precision Alignment**: Explicitly define `valign` (`'top'`, `'middle'`, `'bottom'`) and `margin` values (e.g., `margin: [5, 0, 5, 0]`) for precise text boundaries.
+- **Automated Consistency**: Create a wrapper function (e.g., `addStandardText`) that injects default values for `x, y, w, h, align, valign, margin, wrap` on all text to prevent box mismatches.
+- **Visual Refinement & Wrapping**: Ensure `h` (height) is sufficiently large (e.g., 2.2 inches for long titles) to accommodate multi-line wrapped text without overlapping background shapes or other text.
+
 ---
 
 ## Lists & Bullets

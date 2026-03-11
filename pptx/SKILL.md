@@ -125,6 +125,7 @@ Choose colors that match your topic — don't default to generic blue. Use these
 
 ### Avoid (Common Mistakes)
 
+- **Don't leave text boxes unbounded** — Always provide explicit `y`, `h`, `valign`, and `margin` values (or use a wrapper function) to prevent text from overlapping or escaping its intended box.
 - **Don't repeat the same layout** — vary columns, cards, and callouts across slides
 - **Don't center body text** — left-align paragraphs and lists; center only titles
 - **Don't skimp on size contrast** — titles need 36pt+ to stand out from 14-16pt body
